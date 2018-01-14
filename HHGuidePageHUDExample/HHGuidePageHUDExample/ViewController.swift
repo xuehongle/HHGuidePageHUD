@@ -12,6 +12,7 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.title = "首页"
         //    if (![[NSUserDefaults standardUserDefaults] boolForKey:BOOLFORKEY]) {
         //        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:BOOLFORKEY];
         // 静态引导页
@@ -36,7 +37,8 @@ class ViewController: UIViewController {
     // MARK: - 静态图片引导页
     func setStaticGuidePage() {
         let imageNameArray: [String] = ["guide00", "guide01", "guide02"]
-        
+        let guideView = HHGuidePageHUD.init(imageNameArray: imageNameArray, isHiddenSkipButton: false)
+        self.navigationController?.view.addSubview(guideView)
     }
 
 }
