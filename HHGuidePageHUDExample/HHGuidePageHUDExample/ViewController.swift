@@ -14,13 +14,13 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         self.navigationItem.title = "首页"
         // 静态引导页
-        // self.setStaticGuidePage()
+        self.setStaticGuidePage()
         
         // 动态引导页
-        self.setDynamicGuidePage()
+//         self.setDynamicGuidePage()
         
         // 视频引导页
-        // [self setVideoGuidePage];
+//         self.setVideoGuidePage()
         
         let textLabel = UILabel()
         textLabel.text = "Hello!"
@@ -40,6 +40,14 @@ class ViewController: UIViewController {
     func setDynamicGuidePage() {
         let imageNameArray: [String] = ["guideImage6.gif", "guideImage7.gif", "guideImage8.gif"]
         let guideView = HHGuidePageHUD.init(imageNameArray: imageNameArray, isHiddenSkipButton: false)
+        self.navigationController?.view.addSubview(guideView)
+    }
+    
+    // MARK: - 视频引导页
+    func setVideoGuidePage() {
+        let urlStr = Bundle.main.path(forResource: "1.mp4", ofType: nil)
+        let videoUrl = NSURL.fileURL(withPath: urlStr!)
+        let guideView = HHGuidePageHUD.init(videoURL:videoUrl, isHiddenSkipButton: false)
         self.navigationController?.view.addSubview(guideView)
     }
     

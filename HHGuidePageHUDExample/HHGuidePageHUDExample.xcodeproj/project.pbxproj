@@ -18,6 +18,7 @@
 		8505E35B200C8E740070591B /* guideImage7.gif in Resources */ = {isa = PBXBuildFile; fileRef = 8505E358200C8E740070591B /* guideImage7.gif */; };
 		8505E35C200C8E740070591B /* guideImage6.gif in Resources */ = {isa = PBXBuildFile; fileRef = 8505E359200C8E740070591B /* guideImage6.gif */; };
 		8505E35E200C8EBA0070591B /* UIImage+GIF.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8505E35D200C8EBA0070591B /* UIImage+GIF.swift */; };
+		851701CA200CB027001E1CAD /* 1.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 851701C9200CAEB5001E1CAD /* 1.mp4 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		8505E358200C8E740070591B /* guideImage7.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = guideImage7.gif; sourceTree = "<group>"; };
 		8505E359200C8E740070591B /* guideImage6.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = guideImage6.gif; sourceTree = "<group>"; };
 		8505E35D200C8EBA0070591B /* UIImage+GIF.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+GIF.swift"; sourceTree = "<group>"; };
+		851701C9200CAEB5001E1CAD /* 1.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = 1.mp4; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +76,7 @@
 				8505E359200C8E740070591B /* guideImage6.gif */,
 				8505E358200C8E740070591B /* guideImage7.gif */,
 				8505E357200C8E740070591B /* guideImage8.gif */,
+				851701C9200CAEB5001E1CAD /* 1.mp4 */,
 				4098D786200B7E3300D957D9 /* LaunchScreen.storyboard */,
 				4098D789200B7E3300D957D9 /* Info.plist */,
 			);
@@ -149,6 +152,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				851701CA200CB027001E1CAD /* 1.mp4 in Resources */,
 				4098D788200B7E3300D957D9 /* LaunchScreen.storyboard in Resources */,
 				8505E35A200C8E740070591B /* guideImage8.gif in Resources */,
 				4098D793200BB3C600D957D9 /* guide_btn_bg@2x.png in Resources */,

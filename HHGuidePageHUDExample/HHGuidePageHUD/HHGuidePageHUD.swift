@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import AVFoundation
+import MediaPlayer
 
 let HHScreenWidth = UIScreen.main.bounds.size.width
 let HHScreenHeight = UIScreen.main.bounds.size.height
@@ -16,6 +18,8 @@ class HHGuidePageHUD: UIView {
     var imageArray:[String]?
     var guidePageView: UIScrollView!
     var imagePageControl: UIPageControl?
+    var playerController: MPMoviePlayerController?
+    
     
     // MARK: - /************************View life************************/
     /// init
@@ -34,6 +38,30 @@ class HHGuidePageHUD: UIView {
         self.addSkipButton(isHiddenSkipButton: isHiddenSkipButton)
         self.addImages()
         self.addPageControl()
+    }
+    init(videoURL: URL, isHiddenSkipButton: Bool) {
+        let frame = CGRect.init(x: 0, y: 0, width: HHScreenWidth, height: HHScreenHeight)
+        super.init(frame: frame)
+        self.playerController = MPMoviePlayerController.init(contentURL: videoURL)
+        self.playerController?.view.frame = frame
+        self.playerController?.view.alpha = 1.0
+        self.playerController?.controlStyle = .none
+        self.playerController?.repeatMode = .one
+        self.playerController?.shouldAutoplay = true
+        self.playerController?.prepareToPlay()
+        self.addSubview(self.playerController!.view)
+        // 视频引导页进入按钮
+        let movieStartButton = UIButton.init(frame: CGRect.init(x: 20, y: HHScreenHeight-70, width: HHScreenWidth-40, height: 40))
+        movieStartButton.layer.borderWidth = 1.0
+        movieStartButton.layer.cornerRadius = 20
+        movieStartButton.layer.borderColor = UIColor.white.cgColor
+        movieStartButton.setTitle("开始体验", for: .normal)
+        movieStartButton.alpha = 0.0
+        self.playerController?.view.addSubview(movieStartButton)
+        movieStartButton.addTarget(self, action: #selector(skipButtonClick), for: .touchUpInside)
+        UIView.animate(withDuration: 1.0) {
+            movieStartButton.alpha = 1.0
+        }
     }
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
