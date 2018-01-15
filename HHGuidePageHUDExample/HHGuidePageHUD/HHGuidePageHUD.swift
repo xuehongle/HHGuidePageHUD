@@ -15,8 +15,7 @@ class HHGuidePageHUD: UIView {
     
     var imageArray:[String]?
     var guidePageView: UIScrollView!
-    
-    
+    var imagePageControl: UIPageControl?
     
     // MARK: - /************************View life************************/
     /// init
@@ -34,6 +33,7 @@ class HHGuidePageHUD: UIView {
         self.addScrollView(frame: frame)
         self.addSkipButton(isHiddenSkipButton: isHiddenSkipButton)
         self.addImages()
+        self.addPageControl()
     }
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -55,7 +55,7 @@ extension HHGuidePageHUD {
         guidePageView.delegate = self
         self.addSubview(guidePageView)
     }
-    // MARK: - 跳过按钮
+    // 跳过按钮
     func addSkipButton(isHiddenSkipButton: Bool) -> Void {
         if isHiddenSkipButton {
             return
@@ -75,15 +75,22 @@ extension HHGuidePageHUD {
             self.removeFromSuperview()
         }
     }
-    // MARK: - 图片
+    // 图片
     func addImages() -> Void {
         guard let imageArray = self.imageArray else {
             return
         }
         for i in 0..<imageArray.count {
             let imageView = UIImageView.init(frame: CGRect.init(x: HHScreenWidth * CGFloat(i), y: 0, width: HHScreenWidth, height: HHScreenHeight))
-            imageView.image = UIImage.init(named: imageArray[i])
-            self.guidePageView.addSubview(imageView)
+            let idString = (imageArray[i] as NSString).substring(from: imageArray[i].count - 3)
+            if idString == "gif" {
+                imageView.image = UIImage.gifImageWithName(imageArray[i])
+                self.guidePageView.addSubview(imageView)
+            } else {
+                imageView.image = UIImage.init(named: imageArray[i])
+                self.guidePageView.addSubview(imageView)
+            }
+            
             // 在最后一张图片上显示开始体验按钮
             if i == imageArray.count - 1 {
                 imageView.isUserInteractionEnabled = true
@@ -96,8 +103,22 @@ extension HHGuidePageHUD {
             }
         }
     }
+    func addPageControl() -> Void {
+        // 设置引导页上的页面控制器
+        self.imagePageControl = UIPageControl.init(frame: CGRect.init(x: 0, y: HHScreenHeight*0.9, width: HHScreenWidth, height: HHScreenHeight*0.1))
+        self.imagePageControl?.currentPage = 0
+        self.imagePageControl?.numberOfPages = self.imageArray?.count ?? 0
+        self.imagePageControl?.pageIndicatorTintColor = UIColor.gray
+        self.imagePageControl?.currentPageIndicatorTintColor = UIColor.white
+        self.addSubview(self.imagePageControl!)
+    }
 }
 // MARK: - /************************代理方法************************/
 extension HHGuidePageHUD: UIScrollViewDelegate {
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        let page = scrollView.contentOffset.x / scrollView.frame.size.width
+        self.imagePageControl?.currentPage = Int(page)
+    }
     
 }

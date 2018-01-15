@@ -9,22 +9,18 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "首页"
-        //    if (![[NSUserDefaults standardUserDefaults] boolForKey:BOOLFORKEY]) {
-        //        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:BOOLFORKEY];
         // 静态引导页
-//        [self setStaticGuidePage];
-        self.setStaticGuidePage()
+        // self.setStaticGuidePage()
         
         // 动态引导页
-        //         [self setDynamicGuidePage];
+        self.setDynamicGuidePage()
         
         // 视频引导页
-        //         [self setVideoGuidePage];
-        //    }
+        // [self setVideoGuidePage];
         
         let textLabel = UILabel()
         textLabel.text = "Hello!"
@@ -40,6 +36,12 @@ class ViewController: UIViewController {
         let guideView = HHGuidePageHUD.init(imageNameArray: imageNameArray, isHiddenSkipButton: false)
         self.navigationController?.view.addSubview(guideView)
     }
-
+    // MARK: - 动态图片引导页
+    func setDynamicGuidePage() {
+        let imageNameArray: [String] = ["guideImage6.gif", "guideImage7.gif", "guideImage8.gif"]
+        let guideView = HHGuidePageHUD.init(imageNameArray: imageNameArray, isHiddenSkipButton: false)
+        self.navigationController?.view.addSubview(guideView)
+    }
+    
 }
 
