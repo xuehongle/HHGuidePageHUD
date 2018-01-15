@@ -13,9 +13,9 @@
 		<th>加载本地视频</th>
 	</tr>
 	<tr>
-		<td><img src="https://github.com/xuehongle/HHGuidePageHUD/blob/master/DeviceImages/Screen%E9%9D%99%E6%80%81.gif" width="300"></td>
-		<td><img src="https://github.com/xuehongle/HHGuidePageHUD/blob/master/DeviceImages/Screen%E5%8A%A8%E6%80%81.gif" width="300"></td>
-		<td><img src="https://github.com/xuehongle/HHGuidePageHUD/blob/master/DeviceImages/Screen%E8%A7%86%E9%A2%91.gif" width="300"></td>
+		<td><img src="https://github.com/xuehongle/HHGuidePageHUD/blob/master/DeviceImages/j.gif" width="300"></td>
+		<td><img src="https://github.com/xuehongle/HHGuidePageHUD/blob/master/DeviceImages/d.gif" width="300"></td>
+		<td><img src="https://github.com/xuehongle/HHGuidePageHUD/blob/master/DeviceImages/v.gif" width="300"></td>
 	</tr>
 </table>
 
