@@ -26,7 +26,7 @@ class HHGuidePageHUD: UIView {
     ///
     /// - Parameters:
     ///   - imageNameArray: 引导页图片数组
-    ///   - isHidden:  跳过按钮是否隐藏
+    ///   - isHiddenSkipButton:  跳过按钮是否隐藏
     init(imageNameArray:[String], isHiddenSkipButton: Bool) {
         let frame = CGRect.init(x: 0, y: 0, width: HHScreenWidth, height: HHScreenHeight)
         super.init(frame: frame)
